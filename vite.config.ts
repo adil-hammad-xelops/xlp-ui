@@ -43,6 +43,9 @@ export default defineConfig({
         react(),
         dts({
             outDir: "dist/types",
+            tsconfigPath: "./tsconfig.json",
+            include: ["src"],
+            entryRoot: "src",
         }),
         tsconfigPaths(),
     ],

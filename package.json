@@ -19,19 +19,19 @@
     "url": "https://github.com/adil-hammad-xelops/xlp-ui.git"
   },
   "homepage": "https://github.com/adil-hammad-xelops/xlp-ui#readme",
-  "main": "./dist/index.umd.js",
+  "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
+      "require": "./dist/index.cjs.js"
     },
     "./theme": {
-      "types": "./dist/types/theme.d.ts",
+      "types": "./dist/types/theme/index.d.ts",
       "import": "./dist/theme.es.js",
-      "require": "./dist/theme.umd.js"
+      "require": "./dist/theme.cjs.js"
     }
   },
   "sideEffects": false,
