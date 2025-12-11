@@ -7,9 +7,12 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
     build: {
         lib: {
-            entry: path.resolve(__dirname, "src/index.ts"),
+            entry: {
+                index: path.resolve(__dirname, "src/index.ts"),
+                theme: path.resolve(__dirname, "src/theme/index.ts"),
+            },
             name: "xlp-ui",
-            fileName: (format) => `index.${format}.js`,
+            fileName: (format, entryName) => `${entryName}.${format}.js`,
         },
         rollupOptions: {
             external: [
@@ -39,8 +42,6 @@ export default defineConfig({
     plugins: [
         react(),
         dts({
-            insertTypesEntry: true,
-            rollupTypes: true,
             outDir: "dist/types",
         }),
         tsconfigPaths(),

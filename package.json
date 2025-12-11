@@ -1,5 +1,5 @@
 {
-  "name": "xlp-ui",
+  "name": "xelops-ui",
   "private": false,
   "version": "0.1.3",
   "type": "module",
@@ -12,13 +12,13 @@
     "design-system",
     "typescript"
   ],
-  "author": "XLP Team",
+  "author": "Xelops Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-org/xlp-ui.git"
+    "url": "https://github.com/adil-hammad-xelops/xlp-ui.git"
   },
-  "homepage": "https://github.com/your-org/xlp-ui#readme",
+  "homepage": "https://github.com/adil-hammad-xelops/xlp-ui#readme",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "types": "./dist/types/index.d.ts",
@@ -29,9 +29,9 @@
       "require": "./dist/index.umd.js"
     },
     "./theme": {
-      "types": "./dist/types/theme/index.d.ts",
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
+      "types": "./dist/types/theme.d.ts",
+      "import": "./dist/theme.es.js",
+      "require": "./dist/theme.umd.js"
     }
   },
   "sideEffects": false,
