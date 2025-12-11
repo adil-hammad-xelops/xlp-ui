@@ -14,17 +14,23 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-   "declaration": true,
+    "declaration": true,
     "declarationDir": "dist/types",
     "emitDeclarationOnly": true,
     "noEmit": false,
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "dist/types",
     "jsx": "react-jsx",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "typeRoots": [
       "./dist/index.d.ts",
       "node_modules/@types"
@@ -32,7 +38,12 @@
   },
   "include": [
     "src",
+    ".storybook",
     "./index.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
   ],
   "references": [
     {

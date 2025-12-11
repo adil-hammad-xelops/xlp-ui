@@ -1,0 +1,173 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Theming/Overview" />
+
+# Theming
+
+XLP UI uses a token-based theming system built on top of Chakra UI's design system.
+
+## Theme Structure
+
+The theme is composed of several layers:
+
+### 1. Design Tokens
+
+Design tokens are the smallest pieces of the theme:
+
+```tsx
+// Colors
+colors.light.bg.primary    // "#FFFFFF"
+colors.dark.bg.primary     // "#0F172A"
+
+// Spacing
+spacing.4                  // "1rem" (16px)
+
+// Radii
+radii.md                   // "6px"
+
+// Shadows
+shadows.md                 // "0 4px 6px..."
+```
+
+### 2. Semantic Tokens
+
+Semantic tokens provide meaning to design tokens:
+
+```tsx
+// These automatically switch between light/dark mode
+bg.primary      // Background color
+text.primary    // Text color
+border.default  // Border color
+accent.primary  // Accent color
+```
+
+### 3. Component Styles
+
+Components use semantic tokens for consistent styling:
+
+```tsx
+<XlpButton colorPalette="blue" variant="solid" />
+<XlpInput borderRadius="lg" />
+<XlpCard variant="elevated" />
+```
+
+## Using the Theme
+
+### Provider Setup
+
+```tsx
+import { XlpProvider } from 'xlp-ui';
+
+function App() {
+  return (
+    <XlpProvider>
+      <YourApp />
+    </XlpProvider>
+  );
+}
+```
+
+### With Custom Theme Options
+
+```tsx
+<XlpProvider
+  themeProps={{
+    defaultTheme: "light",  // or "dark"
+  }}
+>
+  <YourApp />
+</XlpProvider>
+```
+
+## Color Mode
+
+XLP UI supports both light and dark modes out of the box.
+
+### Toggle Color Mode
+
+Use the built-in color mode utilities:
+
+```tsx
+import { useColorMode } from '@chakra-ui/react';
+
+function ColorModeToggle() {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  return (
+    <button onClick={toggleColorMode}>
+      {colorMode === 'light' ? '🌙' : '☀️'}
+    </button>
+  );
+}
+```
+
+## Customizing Components
+
+### Using Props
+
+Most components accept styling props:
+
+```tsx
+<XlpButton
+  colorPalette="purple"
+  variant="outline"
+  size="lg"
+  borderRadius="full"
+/>
+```
+
+### Available Props
+
+| Prop | Values |
+|------|--------|
+| `colorPalette` | gray, red, orange, yellow, green, teal, blue, cyan, purple, pink |
+| `variant` | solid, outline, ghost, subtle |
+| `size` | xs, sm, md, lg, xl |
+| `borderRadius` | none, sm, md, lg, xl, 2xl, full |
+
+## Token Reference
+
+### Colors
+
+See the **Foundations/Colors** section for the complete color palette.
+
+### Spacing
+
+```
+0    → 0px
+1    → 4px
+2    → 8px
+3    → 12px
+4    → 16px
+5    → 20px
+6    → 24px
+8    → 32px
+10   → 40px
+12   → 48px
+16   → 64px
+20   → 80px
+24   → 96px
+```
+
+### Radii
+
+```
+none → 0
+sm   → 4px
+md   → 6px
+lg   → 8px
+xl   → 12px
+2xl  → 16px
+full → 9999px
+```
+
+### Shadows
+
+```
+xs   → Subtle shadow
+sm   → Light shadow
+md   → Medium shadow
+lg   → Large shadow
+xl   → Extra large shadow
+2xl  → Maximum shadow
+```

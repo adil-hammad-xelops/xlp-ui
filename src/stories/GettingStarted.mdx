@@ -1,0 +1,125 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Overview/Getting Started" />
+
+# Getting Started
+
+This guide will help you set up XLP UI in your React project.
+
+## Installation
+
+Install XLP UI and its peer dependencies:
+
+```bash
+# npm
+npm install xlp-ui @chakra-ui/react @emotion/react
+
+# yarn
+yarn add xlp-ui @chakra-ui/react @emotion/react
+
+# pnpm
+pnpm add xlp-ui @chakra-ui/react @emotion/react
+```
+
+## Setup
+
+### 1. Add the Provider
+
+Wrap your application with `XlpProvider`:
+
+```tsx
+// src/main.tsx or src/index.tsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { XlpProvider } from 'xlp-ui';
+import App from './App';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <XlpProvider>
+      <App />
+    </XlpProvider>
+  </React.StrictMode>
+);
+```
+
+### 2. Use Components
+
+Import and use components in your application:
+
+```tsx
+import {
+  XlpButton,
+  XlpInput,
+  XlpCard,
+  XlpCardBody,
+  Box,
+  VStack
+} from 'xlp-ui';
+
+function App() {
+  return (
+    <Box p={8}>
+      <XlpCard maxW="400px">
+        <XlpCardBody>
+          <VStack gap={4}>
+            <XlpInput placeholder="Enter your email" />
+            <XlpButton colorPalette="blue" w="full">
+              Subscribe
+            </XlpButton>
+          </VStack>
+        </XlpCardBody>
+      </XlpCard>
+    </Box>
+  );
+}
+```
+
+## Dark Mode
+
+XLP UI supports dark mode out of the box. To enable dark mode:
+
+```tsx
+<XlpProvider themeProps={{ defaultTheme: "dark" }}>
+  <App />
+</XlpProvider>
+```
+
+Or let users toggle it:
+
+```tsx
+import { useColorMode } from '@chakra-ui/react';
+import { XlpButton } from 'xlp-ui';
+
+function ColorModeToggle() {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  return (
+    <XlpButton onClick={toggleColorMode}>
+      Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+    </XlpButton>
+  );
+}
+```
+
+## TypeScript
+
+XLP UI is built with TypeScript. All components have full type support:
+
+```tsx
+import { XlpButton, type XlpButtonProps } from 'xlp-ui';
+
+interface MyButtonProps extends XlpButtonProps {
+  label: string;
+}
+
+const MyButton: React.FC<MyButtonProps> = ({ label, ...props }) => (
+  <XlpButton {...props}>{label}</XlpButton>
+);
+```
+
+## Next Steps
+
+- Browse the **Components** section to see all available components
+- Check **Foundations** to understand the design tokens
+- Read **Theming** to learn how to customize the look and feel

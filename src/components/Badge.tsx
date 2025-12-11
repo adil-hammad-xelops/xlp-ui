@@ -1,18 +1,32 @@
-export interface BadgeProps {
-    color?: 'green' | 'red' | 'gray';
-    text: string;
-  }
-  
-  export function Badge({ color = 'gray', text }: BadgeProps) {
-    const colorMap = {
-      green: 'bg-green-100 text-green-800',
-      red: 'bg-red-100 text-red-800',
-      gray: 'bg-gray-100 text-gray-800',
-    };
-  
+import {Badge as ChakraBadge, type BadgeProps as ChakraBadgeProps} from "@chakra-ui/react";
+import type {FC} from "react";
+
+export interface XlpBadgeProps extends Omit<ChakraBadgeProps, 'colorPalette'> {
+    /** The color scheme of the badge */
+    colorPalette?: 'green' | 'red' | 'gray' | 'blue' | 'yellow' | 'purple' | 'orange';
+    /** The text content to display */
+    children: React.ReactNode;
+}
+
+export const XlpBadge: FC<XlpBadgeProps> = ({
+                                                colorPalette = 'gray',
+                                                children,
+                                                ...props
+                                            }) => {
     return (
-      <span className={`inline-block px-3 py-1 text-sm rounded-full ${colorMap[color]}`}>
-        {text}
-      </span>
+        <ChakraBadge
+            colorPalette={colorPalette}
+            px={3}
+            py={1}
+            borderRadius="full"
+            fontSize="sm"
+            {...props}
+        >
+            {children}
+        </ChakraBadge>
     );
-  };
+};
+
+// Re-export for backward compatibility
+export {XlpBadge as Badge};
+

@@ -1,0 +1,90 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Overview/Introduction" />
+
+# XLP UI - Component Library
+
+Welcome to **XLP UI**, a modern React component library built on top of [Chakra UI](https://chakra-ui.com/).
+
+## 🚀 Features
+
+- **Built on Chakra UI v3** - Leverages the power and flexibility of Chakra UI
+- **TypeScript First** - Full TypeScript support with strict typing
+- **Dark Mode Support** - Built-in light/dark mode switching
+- **Accessible** - WAI-ARIA compliant components
+- **Customizable** - Easy theming with design tokens
+- **Tree-shakeable** - Import only what you need
+
+## 📦 Installation
+
+```bash
+npm install xlp-ui @chakra-ui/react @emotion/react
+```
+
+## 🏁 Quick Start
+
+Wrap your application with `XlpProvider`:
+
+```tsx
+import { XlpProvider, XlpButton } from 'xlp-ui';
+
+function App() {
+  return (
+    <XlpProvider>
+      <XlpButton colorPalette="blue">
+        Hello World
+      </XlpButton>
+    </XlpProvider>
+  );
+}
+```
+
+## 📚 Documentation Structure
+
+### Overview
+- **Introduction** - Getting started guide
+
+### Foundations
+- **Colors** - Color palette and semantic tokens
+- **Typography** - Font sizes, weights, and styles
+- **Spacing** - Spacing scale and utilities
+- **Radii** - Border radius tokens
+- **Shadows** - Elevation and shadow tokens
+
+### Components
+
+#### Data Display
+Badge, Card, Table, DataTable, Tag
+
+#### Disclosure
+Accordion, Tabs
+
+#### Feedback
+Alert, Progress, Skeleton, Spinner, EmptyState
+
+#### Form
+Button, Checkbox, Combobox, Input, NumberInput, Radio, Select, Switch, Textarea, IconButton
+
+#### Layout
+Divider, Spacing utilities
+
+#### Media and Icons
+Avatar
+
+#### Navigation
+Breadcrumb, Menu, Pagination
+
+#### Overlay
+Drawer, Modal, Popover, Tooltip
+
+#### Typography
+Heading, Text, Code, Link
+
+#### Visualization
+AreaChart, BarChart, DonutChart, LineChart, RadarChart, StatCard, ProgressRing
+
+## 🔗 Links
+
+- [GitHub Repository](https://github.com/your-org/xlp-ui)
+- [NPM Package](https://www.npmjs.com/package/xlp-ui)
+- [Chakra UI Documentation](https://chakra-ui.com/docs)
