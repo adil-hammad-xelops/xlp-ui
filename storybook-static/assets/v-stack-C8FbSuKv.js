@@ -1,0 +1,1 @@
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{r as a}from"./index-DhY--VwN.js";import{S as c}from"./stack-BVXR5AfD.js";const s=a.forwardRef(function(r,t){return o.jsx(c,{align:"center",...r,direction:"column",ref:t})});s.displayName="VStack";export{s as V};
